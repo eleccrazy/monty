@@ -62,8 +62,11 @@ void run_monty(char *buffer, unsigned int line_number)
 	else
 	{
 		error_op(line_number, cmd);
+		if (buffer)
+			free(buffer);
 		if (h)
 			free_dlistint(h);
+		exit(EXIT_FAILURE);
 	}
 }
 
