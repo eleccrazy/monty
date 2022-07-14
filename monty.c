@@ -55,22 +55,25 @@ void run_monty(char *buffer, unsigned int line_number)
 	void (*f)(stack_t**, unsigned int);
 	char *cmd = strtok(buffer, " \r\t\n");
 
-	f = get_func(cmd);
+	if (cmd && cmd[0] != '#')
+	{
+		f = get_func(cmd);
 
-	if (f != NULL)
-	{
-		if (strcmp(cmd, "push") == 0)
-			value = strtok(NULL, " \r\t\n");
-		f(&h, line_number);
-	}
-	else
-	{
-		error_op(line_number, cmd);
-		if (buffer)
-			free(buffer);
-		if (h)
-			free_dlistint(h);
-		exit(EXIT_FAILURE);
+		if (f != NULL)
+		{
+			if (strcmp(cmd, "push") == 0)
+				value = strtok(NULL, " \r\t\n");
+			f(&h, line_number);
+		}
+		else
+		{
+			error_op(line_number, cmd);
+			if (buffer)
+				free(buffer);
+			if (h)
+				free_dlistint(h);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
