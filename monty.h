@@ -79,6 +79,7 @@ typedef struct instruction_s
 extern stack_t *h;
 extern FILE *file;
 extern char *value;
+extern int mode;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -95,6 +96,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack_queue(stack_t **stack, unsigned int line_number);
 
 size_t dlistint_len(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
