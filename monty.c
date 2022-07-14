@@ -28,6 +28,7 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 		{"sub", sub},
 		{"div", divt},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
