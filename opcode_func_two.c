@@ -97,3 +97,28 @@ void divt(stack_t **stack, unsigned int line_number)
 	*stack = temp->next;
 	free(temp);
 }
+/**
+ * mul - multiplies the second top element of the stack
+ * with the top element of the stack.
+ *
+ * @stack: a pointer to a pointer to the beginning of the stack implementation
+ * @line_number: The line number
+ *
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	int pro;
+	stack_t *temp = *stack;
+	int leng = dlistint_len(*stack);
+
+	if (leng < 2)
+	{
+		error_mul(line_number);
+		exit(EXIT_FAILURE);
+	}
+	pro = (temp->n) * (temp->next->n);
+	temp->next->n = pro;
+	temp->next->prev = NULL;
+	*stack = temp->next;
+	free(temp);
+}
