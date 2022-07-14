@@ -39,6 +39,7 @@
 #define error_div1(ln) fprintf(stderr, "L%u: can't div, stack too short\n", ln)
 #define error_div2(ln) fprintf(stderr, "L%u: division by zero\n", ln)
 #define error_mul(ln) fprintf(stderr, "L%u: can't mul, stack too short\n", ln)
+#define error_mod1(ln) fprintf(stderr, "L%u: can't mod, stack too short\n", ln)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -87,6 +88,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void divt(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 size_t dlistint_len(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
