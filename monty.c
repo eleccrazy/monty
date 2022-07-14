@@ -81,6 +81,7 @@ void (*get_func(char *opcode))(stack_t**, unsigned int)
 void run_monty(char *buffer, unsigned int line_number)
 {
 	void (*f)(stack_t**, unsigned int);
+
 	cmd = strtok(buffer, " \r\t\n");
 
 	if (cmd && cmd[0] != '#')
