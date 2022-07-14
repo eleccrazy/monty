@@ -36,6 +36,8 @@
 #define error_swap(l) fprintf(stderr, "L%u: can't swap, stack too short\n", l)
 #define error_add(ln) fprintf(stderr, "L%u: can't add, stack too short\n", ln)
 #define error_sub(ln) fprintf(stderr, "L%u: can't sub, stack too short\n", ln)
+#define error_div1(ln) fprintf(stderr, "L%u: can't div, stack too short\n", ln)
+#define error_div2(ln) fprintf(stderr, "L%u: division by zero\n", ln)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -82,6 +84,7 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void divt(stack_t **stack, unsigned int line_number);
 
 size_t dlistint_len(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
